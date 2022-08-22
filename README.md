@@ -70,11 +70,11 @@ In order to have everything organized, we will first create a couple of folders 
 
 ```js
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
-const router = require('express').Router()
+const router = require("express").Router();
 
 // all your routes here
 
-module.exports = router
+module.exports = router;
 ```
 
 Obviously, naming is the matter of preference so we used very descriptive names for routes.
