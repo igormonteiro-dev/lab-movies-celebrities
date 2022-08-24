@@ -4,8 +4,6 @@ const router = require("express").Router();
 const celebritiesRoutes = require("../routes/celebrities.routes");
 const moviesRoutes = require("../routes/movies.routes");
 
-//GET
-
 // This is a health check. It allows us to see that the API is running.
 
 router.get("/", (req, res, next) =>

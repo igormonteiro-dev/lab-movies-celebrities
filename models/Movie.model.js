@@ -15,10 +15,10 @@ const movieSchema = new Schema({
   },
   cast: {
     type: [Schema.Types.ObjectId],
-    ref: `Celebrity`,
+    ref: "Celebrity",
   },
 });
 
-const Movie = model(`Movie`, movieSchema);
+const Movie = model("Movie", movieSchema);
 
 module.exports = Movie;

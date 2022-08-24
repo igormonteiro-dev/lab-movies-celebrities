@@ -1,6 +1,6 @@
-const router = require("express").Router(),
-  mongoose = require(`mongoose`),
-  Movie = require(`../models/Movie.model`);
+const router = require("express").Router();
+const mongoose = require(`mongoose`);
+const Movie = require(`../models/Movie.model`);
 
 router.post("/", async (req, res, next) => {
   try {
@@ -28,6 +28,7 @@ router
   .route("/:id")
   .get(async (req, res, next) => {
     try {
+      //populate cast
       const movie = await Movie.findById(req.params.id).populate("cast");
 
       res.status(201).json(movie);
@@ -38,8 +39,8 @@ router
   .delete(async (req, res, next) => {
     try {
       const removeMovie = await Movie.findByIdAndRemove(req.params.id);
-      console.log(removeMovie);
-      res.status(204).json({ message: "NO CONTENT" });
+
+      res.status(204).json({ message: "NO CONTENT" }); // or removeMovie
     } catch (err) {
       next(err);
     }
@@ -52,7 +53,7 @@ router
         { new: true }
       );
 
-      return res.status(200).json(updatedMovie);
+      res.status(200).json(updatedMovie);
     } catch (error) {
       next(error);
     }

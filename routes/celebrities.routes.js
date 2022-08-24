@@ -1,6 +1,6 @@
-const router = require("express").Router(),
-  mongoose = require("mongoose"),
-  Celebrity = require("../models/Celebrity.model");
+const router = require("express").Router();
+const mongoose = require("mongoose");
+const Celebrity = require("../models/Celebrity.model");
 
 // all your routes here
 
@@ -10,7 +10,7 @@ router.post("/", async (req, res) => {
 
     res.status(201).json(celebrity);
   } catch (error) {
-    res.status(400).json(`There is an error ${error}`);
+    res.status(400).json({ error: `There is an error ${error.message}` });
   }
 });
 
